@@ -25,15 +25,15 @@ class ParamsHelper
 	}
 
 
-	public static function build($params)
+	public static function buildXML($params)
 	{
 		$params = $params->toArray();
 
-		return self::buildTo($params);
+		return self::buildXMLTo($params);
 	}
 
 
-	protected static function buildTo($params)
+	protected static function buildXMLTo($params)
 	{
 		$close = false;
 		$xml   = '<field ';
@@ -76,7 +76,7 @@ class ParamsHelper
 
 			foreach ($params['rsubform'] as $rsubform_field)
 			{
-				$xml .= self::buildTo($rsubform_field);
+				$xml .= self::buildXMLTo($rsubform_field);
 			}
 
 			$xml   .= '</form>';
@@ -105,4 +105,59 @@ class ParamsHelper
 		return $xml;
 	}
 
+
+	public static function buildArray($params)
+	{
+		$params = $params->toArray();
+
+		return self::buildArrayTo($params);
+	}
+
+
+	protected static function buildArrayTo($params)
+	{
+		$attrs = [
+			'type'        => $params['rtype'],
+			'name'        => $params['rname'],
+			'label'       => $params['rlabel'],
+			'description' => $params['rdescription'],
+		];
+
+		if (isset($params['rattrs']) && is_array($params['rattrs']))
+		{
+			foreach ($params['rattrs'] as $rattr)
+			{
+				$attrs[$rattr['attr']] = trim($rattr['value']);
+			}
+		}
+
+
+		// если сабформа
+		if ($attrs['type'] === 'subform')
+		{
+
+			$attrs['form'] = [];
+
+			foreach ($params['rsubform'] as $rsubform_field)
+			{
+				$attrs['form'][] = self::buildArrayTo($rsubform_field);
+			}
+
+		}
+
+		// если списочный
+		if (in_array($attrs['type'], ['list', 'radio']))
+		{
+			$attrs['options'] = [];
+			foreach ($params['rvalues'] as $value)
+			{
+				$attrs['options'][] = [
+					'title' => $value['title'],
+					'value' => $value['value'],
+				];
+			}
+		}
+
+		return $attrs;
+	}
 }

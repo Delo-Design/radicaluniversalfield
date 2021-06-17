@@ -1,5 +1,5 @@
 <?php defined('_JEXEC') or die;
-
+/*
 use Joomla\CMS\Form\FormHelper;
 use Joomla\Filesystem\Path;
 
@@ -7,9 +7,6 @@ JFormHelper::loadFieldClass('text');
 JLoader::register('ParamsHelper', JPATH_PLUGINS . '/fields/radicaluniversalfield/helpers/ParamsHelper.php');
 JLoader::register('PathsHelper', JPATH_PLUGINS . '/fields/radicaluniversalfield/helpers/PathsHelper.php');
 
-/**
- * Class JFormFieldRadicaluniversalfield
- */
 class JFormFieldRadicaluniversalfield extends JFormFieldText
 {
 
@@ -55,7 +52,7 @@ class JFormFieldRadicaluniversalfield extends JFormFieldText
 		$params->set('rdescription', $this->description);
 
 		// получаем поля getInput и возвращаем
-		$xml        = ParamsHelper::build($params);
+		$xml        = ParamsHelper::buildXML($params);
 		$class_name = 'JFormField' . ucfirst(strtolower($params->get('rtype')));
 
 		if (class_exists($class_name))
@@ -71,3 +68,4 @@ class JFormFieldRadicaluniversalfield extends JFormFieldText
 
 
 }
+*/

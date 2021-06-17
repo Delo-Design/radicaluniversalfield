@@ -25,66 +25,8 @@
 
 	<files>
 		<filename plugin="radicaluniversalfield">radicaluniversalfield.php</filename>
-		<filename>LICENSE.txt</filename>
 		<folder>fields</folder>
 		<folder>params</folder>
 	</files>
-
-	<config>
-		<fields name="params">
-			<fieldset name="basic">
-				<field
-						type="type"
-						name="type"
-						label="type"
-				/>
-				<field
-						type="editor"
-						name="xml"
-						editor="codemirror"
-						showon="type:cleanxml"
-				/>
-				<field
-						type="subform"
-						name="attrs"
-						label="attrs"
-						layout="joomla.form.field.subform.repeatable-table"
-						multiple="true"
-						showon="type!:cleanxml"
-				>
-					<form>
-						<field
-								type="text"
-								name="title"
-						/>
-						<field
-								type="list"
-								name="attrs"
-						/>
-					</form>
-				</field>
-				<field
-						type="subform"
-						name="listvalues"
-						label="listvalues"
-						layout="joomla.form.field.subform.repeatable-table"
-						multiple="true"
-						showon="type!:cleanxml[AND]type:list[OR]type:radio"
-				/>
-				<field
-						type="subform"
-						name="listsubform"
-						showon="type!:cleanxml[AND]type:subform"
-				>
-					<form>
-						<field
-								type="type"
-								name="type"
-						/>
-					</form>
-				</field>
-			</fieldset>
-		</fields>
-	</config>
 
 </extension>

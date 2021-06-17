@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fields name="fieldparams" addfieldpath="/plugins/fields/radicaluniversalfield/fields">
+        <fieldset name="fieldparams">
+
+            <field
+                    type="listfieldsall"
+                    name="type"
+                    label="type"
+            >
+                <option value="">- Выберите поле -</option>
+            </field>
+
+            <field
+                    type="editor"
+                    name="xml"
+                    editor="codemirror"
+                    showon="type:cleanxml"
+            />
+
+            <field
+                    type="subform"
+                    name="attrs"
+                    label="attrs"
+                    layout="joomla.form.field.subform.repeatable-table"
+                    multiple="true"
+                    showon="type!:cleanxml"
+            >
+                <form>
+                    <field
+                            type="text"
+                            name="title"
+                    />
+                    <field
+                            type="text"
+                            name="attrs"
+                    />
+                </form>
+            </field>
+
+            <field
+                    type="subform"
+                    name="values"
+                    label="values"
+                    layout="joomla.form.field.subform.repeatable-table"
+                    multiple="true"
+                    showon="type!:cleanxml[AND]type:list[OR]type:radio"
+            >
+                <form>
+                    <field
+                            type="text"
+                            name="title"
+                    />
+                    <field
+                            type="text"
+                            name="value"
+                    />
+                </form>
+            </field>
+
+            <field
+                    type="subform"
+                    name="subform"
+                    label="subform"
+                    layout="joomla.form.field.subform.repeatable"
+                    multiple="true"
+                    showon="type!:cleanxml[AND]type:subform"
+            >
+                <form>
+
+                    <field
+                            type="listfieldsall"
+                            name="type"
+                            label="type"
+                            exclude="subform"
+                    >
+                        <option value="">- Выберите поле -</option>
+                    </field>
+
+                    <field
+                            type="editor"
+                            name="xml"
+                            editor="codemirror"
+                            showon="type:cleanxml"
+                    />
+
+                    <field
+                            type="subform"
+                            name="attrs"
+                            label="attrs"
+                            layout="joomla.form.field.subform.repeatable-table"
+                            multiple="true"
+                            showon="type!:cleanxml"
+                    >
+                        <form>
+                            <field
+                                    type="text"
+                                    name="title"
+                            />
+                            <field
+                                    type="text"
+                                    name="attrs"
+                            />
+                        </form>
+                    </field>
+
+                </form>
+            </field>
+        </fieldset>
+    </fields>
+</form>

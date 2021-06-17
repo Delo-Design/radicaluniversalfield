@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" version="3.*" group="fields" method="upgrade">
+	<name>PLG_RADICALUNIVERSALFIELD</name>
+	<creationDate>17.06.2021</creationDate>
+	<author>Cymbal</author>
+	<authorEmail>cymbal@delo-design.ru</authorEmail>
+	<authorUrl>https://delo-design.ru</authorUrl>
+	<copyright>Copyright (C) 2021 "Delo Design". All rights reserved.</copyright>
+	<license>GNU General Public License version 3 or later; see LICENSE.txt</license>
+	<version>1.0</version>
+	<description>PLG_RADICALUNIVERSALFIELD_XML_DESCRIPTION</description>
+
+	<scriptfile>script.php</scriptfile>
+
+	<languages folder="language">
+		<language tag="en-GB">en-GB/en-GB.plg_fields_radicalmultifield.ini</language>
+		<language tag="en-GB">en-GB/en-GB.plg_fields_radicalmultifield.sys.ini</language>
+		<language tag="ru-RU">ru-RU/ru-RU.plg_fields_radicalmultifield.ini</language>
+		<language tag="ru-RU">ru-RU/ru-RU.plg_fields_radicalmultifield.sys.ini</language>
+	</languages>
+
+	<updateservers>
+		<server type="extension" priority="1" name="Radical universal field">https://hika.su/update/free/plg_radicaluniversalfield.xml</server>
+	</updateservers>
+
+	<files>
+		<filename plugin="radicaluniversalfield">radicaluniversalfield.php</filename>
+		<filename>LICENSE.txt</filename>
+		<folder>fields</folder>
+		<folder>params</folder>
+	</files>
+
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+
+			</fieldset>
+		</fields>
+	</config>
+
+</extension>

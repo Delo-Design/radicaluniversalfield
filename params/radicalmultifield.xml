@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fields name="fieldparams" addfieldpath="/plugins/fields/radicalmultifield/fields">
+        <fieldset name="fieldparams">
+
+             <field
+                name="multiplemin"
+                type="number"
+                label="PLG_RADICAL_MULTI_FIELD_FIELD_PARAMS_MULTIPLEMIN_LABEL"
+                description="PLG_RADICAL_MULTI_FIELD_FIELD_PARAMS_MULTIPLEMIN_DESC"
+                default="0"
+                required="true"
+            />
+
+            <field
+                name="multiplemax"
+                type="number"
+                label="PLG_RADICAL_MULTI_FIELD_FIELD_PARAMS_MULTIPLEMAX_LABEL"
+                description="PLG_RADICAL_MULTI_FIELD_FIELD_PARAMS_MULTIPLEMAX_DESC"
+                default="5"
+                required="true"
+            />
+
+            <field
+                name="templatedefault"
+                type="hidden"
+            />
+
+            <field
+                name="templatecategory"
+                type="pluginlayout"
+                label="PLG_RADICAL_MULTI_FIELD_FIELD_PARAMS_TEMPLATECATEGORY_LABEL"
+                description="PLG_RADICAL_MULTI_FIELD_FIELD_PARAMS_TEMPLATECATEGORY_DESC"
+                default="_:default"
+                required="true"
+            />
+
+            <field
+                name="templatearticle"
+                type="pluginlayout"
+                label="PLG_RADICAL_MULTI_FIELD_FIELD_PARAMS_TEMPLATEARTICLE_LABEL"
+                description="PLG_RADICAL_MULTI_FIELD_FIELD_PARAMS_TEMPLATEARTICLE_DESC"
+                default="_:default"
+                required="true"
+            />
+
+            <field
+                name="aview"
+                type="list"
+                label="PLG_RADICAL_MULTI_FIELD_FIELD_PARAMS_AVIEW_LABEL"
+                required="true"
+                default="joomla.form.field.subform.repeatable-table"
+            >
+                <option value="joomla.form.field.subform.repeatable">PLG_RADICAL_MULTI_FIELD_FIELD_PARAMS_AVIEW_OPLION_LIST</option>
+                <option value="repeatable-cards">PLG_RADICAL_MULTI_FIELD_FIELD_PARAMS_AVIEW_OPLION_CARDS</option>
+                <option value="repeatable-uikittable">PLG_RADICAL_MULTI_FIELD_FIELD_PARAMS_AVIEW_OPLION_TABLEUIKIT</option>
+                <option value="joomla.form.field.subform.repeatable-table">PLG_RADICAL_MULTI_FIELD_FIELD_PARAMS_AVIEW_OPLION_TABLE</option>
+            </field>
+
+            <field
+                name="filesimportnote"
+                type="note"
+                label="PLG_RADICAL_MULTI_FIELD_FIELD_PARAMS_FILESIMPORT_NOTE_LABEL"
+                class="alert alert-info"
+            />
+
+            <field
+                name="filesimport"
+                type="radio"
+                label="PLG_RADICAL_MULTI_FIELD_FIELD_PARAMS_FILESIMPORT_LABEL"
+                default="0"
+                class="btn-group"
+                showon="aview:joomla.form.field.subform.repeatable-table[OR]aview:repeatable-cards[OR]aview:repeatable-uikittable"
+            >
+                <option value="1">JYES</option>
+                <option value="0">JNO</option>
+            </field>
+
+            <field
+                name="filesimportname"
+                type="text"
+                label="PLG_RADICAL_MULTI_FIELD_FIELD_PARAMS_FILESIMPORTNAME_LABEL"
+                description="PLG_RADICAL_MULTI_FIELD_FIELD_PARAMS_FILESIMPORTNAME_DESC"
+                required="true"
+                class="input-xlarge"
+                default="image"
+                showon="filesimport:1"
+            />
+
+            <field
+                name="filesimportnamefile"
+                type="text"
+                label="PLG_RADICAL_MULTI_FIELD_FIELD_PARAMS_FILESIMPORTNAMEFILE_LABEL"
+                class="input-xlarge"
+                default=""
+                showon="filesimport:1"
+            />
+
+            <field
+                name="filesimportpath"
+                type="text"
+                label="PLG_RADICAL_MULTI_FIELD_FIELD_PARAMS_FILESIMPORTPATH_LABEL"
+                description="PLG_RADICAL_MULTI_FIELD_FIELD_PARAMS_FILESIMPORTPATH_DESC"
+                required="true"
+                default="images"
+                class="input-xlarge"
+                showon="filesimport:1"
+            />
+
+            <field
+                name="filesimportpreview"
+                type="radio"
+                label="PLG_RADICAL_MULTI_FIELD_FIELD_PARAMS_FILESIMPORTPREVIEW_LABEL"
+                description="PLG_RADICAL_MULTI_FIELD_FIELD_PARAMS_FILESIMPORTPREVIEW_DESC"
+                required="true"
+                class="btn-group"
+                default="0"
+                showon="filesimport:1"
+            >
+                <option value="1">JYES</option>
+                <option value="0">JNO</option>
+            </field>
+
+            <field
+                name="filesimportpreviewmaxwidth"
+                type="text"
+                label="PLG_RADICAL_MULTI_FIELD_FIELD_PARAMS_FILESIMPORTPREVIEWMAXWIDTH_LABEL"
+                required="true"
+                default="360"
+                class="input-xlarge"
+                showon="filesimportpreview:1[AND]filesimport:1"
+            />
+
+            <field
+                name="filesimportpreviewmaxheight"
+                type="text"
+                label="PLG_RADICAL_MULTI_FIELD_FIELD_PARAMS_FILESIMPORTPREVIEWMAXHEIGHT_LABEL"
+                required="true"
+                default="360"
+                class="input-xlarge"
+                showon="filesimportpreview:1[AND]filesimport:1"
+            />
+
+            <field
+                name="filesimportpreviewalgorithm"
+                type="list"
+                label="PLG_RADICAL_MULTI_FIELD_FIELD_PARAMS_FILESIMPORTPREVIEWALGORITHM_LABEL"
+                default="bestfit"
+                showon="filesimportpreview:1[AND]filesimport:1"
+            >
+                <option value="bestfit">PLG_RADICAL_MULTI_FIELD_FIELD_PARAMS_FILESIMPORTPREVIEWALGORITHM_BEST_FIT</option>
+                <option value="fit">PLG_RADICAL_MULTI_FIELD_FIELD_PARAMS_FILESIMPORTPREVIEWALGORITHM_FIT</option>
+                <option value="resize">PLG_RADICAL_MULTI_FIELD_FIELD_PARAMS_FILESIMPORTPREVIEWALGORITHM_RESIZE</option>
+            </field>
+
+            <field
+                name="filesimportpreviewfolder"
+                type="list"
+                label="PLG_RADICAL_MULTI_FIELD_FIELD_PARAMS_FILESIMPORTPREVIEWFOLDER_LABEL"
+                required="true"
+                class="btn-group"
+                default="cacheimages"
+                showon="filesimportpreview:1[AND]filesimport:1"
+            >
+                <option value="cache">PLG_RADICAL_MULTI_FIELD_FIELD_PARAMS_FILESIMPORTPREVIEWFOLDER_CACHE</option>
+                <option value="generatedimages">PLG_RADICAL_MULTI_FIELD_FIELD_PARAMS_FILESIMPORTPREVIEWFOLDER_GENERATED_IMAGES</option>
+                <option value="relatively">PLG_RADICAL_MULTI_FIELD_FIELD_PARAMS_FILESIMPORTPREVIEWFOLDER_RELATIVELY</option>
+            </field>
+
+            <field
+                name="listtype"
+                type="radicalsubform"
+                multiple="true"
+                required="true"
+                label="PLG_RADICAL_MULTI_FIELD_FIELD_PARAMS_TYPELIST_LABEL"
+                layout="joomla.form.field.subform.repeatable"
+            >
+                <form>
+
+                    <field
+                            name="type"
+                            type="list"
+                            label="PLG_RADICAL_MULTI_FIELD_FIELD_PARAMS_TYPELIST_FORM_SELECT"
+                            default="text"
+                    >
+                        <option value="text">Text</option>
+                        <option value="textarea">Textarea</option>
+                        <option value="list">List</option>
+                        <option value="calendar">Calendar</option>
+                        <option value="media">Media</option>
+                        <option value="user">User</option>
+                        <option value="url">Url</option>
+                        <option value="email">E-mail</option>
+                        <option value="color">Color</option>
+                        <option value="editor">Editor</option>
+                        <option value="sql">Sql</option>
+                        <option value="custom">Custom</option>
+                    </field>
+
+                    <field
+                        name="name"
+                        type="text"
+                        label="PLG_RADICAL_MULTI_FIELD_FIELD_PARAMS_TYPELIST_FORM_NAME"
+                        required="true"
+                        class="input-xlarge"
+                        showon="type!:custom"
+                    />
+
+                    <field
+                        name="title"
+                        type="text"
+                        label="PLG_RADICAL_MULTI_FIELD_FIELD_PARAMS_TYPELIST_FORM_TITLE"
+                        required="true"
+                        class="input-xlarge"
+                        showon="type!:custom"
+                    />
+
+                    <field
+                        name="required"
+                        type="radio"
+                        label="PLG_RADICAL_MULTI_FIELD_FIELD_PARAMS_TYPELIST_FORM_REQUIRED"
+                        default="0"
+                        class="btn-group"
+                        showon="type!:custom"
+                    >
+                        <option value="1">JYES</option>
+                        <option value="0">JNO</option>
+                    </field>
+
+                    <field
+                        name="listview"
+                        type="list"
+                        label="PLG_RADICAL_MULTI_FIELD_FIELD_PARAMS_TYPELIST_FORM_LISTVIEW"
+                        showon="type:list"
+                    >
+                        <option value="list">Select</option>
+                        <option value="radio">Radio</option>
+                    </field>
+
+                    <field
+                        name="multiple"
+                        type="radio"
+                        label="PLG_RADICAL_MULTI_FIELD_FIELD_PARAMS_TYPELIST_FORM_MULTIPLE"
+                        default="0"
+                        showon="type:list[AND]listview:list"
+                        class="btn-group"
+                    >
+                        <option value="1">JYES</option>
+                        <option value="0">JNO</option>
+                    </field>
+
+                    <field
+                        name="options"
+                        type="textarea"
+                        label="PLG_RADICAL_MULTI_FIELD_FIELD_PARAMS_TYPELIST_FORM_OPTIONS"
+                        description="PLG_RADICAL_MULTI_FIELD_FIELD_PARAMS_TYPELIST_FORM_OPTIONS_DESC"
+                        class="input-xlarge"
+                        showon="type:list"
+                    />
+
+                    <field
+                        name="customxml"
+                        type="editor"
+                        label="PLG_RADICAL_MULTI_FIELD_FIELD_PARAMS_TYPELIST_FORM_CUSTOMXML"
+                        showon="type:custom"
+                        editor="codemirror"
+                        filter="raw"
+                    />
+
+                    <field
+                        name="attrs"
+                        type="text"
+                        label="PLG_RADICAL_MULTI_FIELD_FIELD_PARAMS_TYPELIST_FORM_ATTRS"
+                        description="PLG_RADICAL_MULTI_FIELD_FIELD_PARAMS_TYPELIST_FORM_ATTRS_DESC"
+                        class="input-xxlarge"
+                        showon="type!:custom"
+                    />
+                </form>
+            </field>
+
+        </fieldset>
+    </fields>
+</form>

@@ -29,4 +29,24 @@
 		<folder>params</folder>
 	</files>
 
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field
+						name="extendfield"
+						type="textarea"
+						label="PLG_RADICAL_MULTI_FIELD_PARAMS_EXTEND_FIELDS_LABEL"
+						description="PLG_RADICAL_MULTI_FIELD_PARAMS_EXTEND_FIELDS_DESC"
+						required="false"
+						default=""
+						size="10"
+						class="input-xxlarge"
+						readonly="false"
+						disabled="false"
+						filter="">
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+
 </extension>

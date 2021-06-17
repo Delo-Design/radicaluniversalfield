@@ -6,7 +6,7 @@
             <field
                     type="listfieldsall"
                     name="type"
-                    label="type"
+                    label="field"
             >
                 <option value="">- Выберите поле -</option>
             </field>
@@ -16,6 +16,27 @@
                     name="xml"
                     editor="codemirror"
                     showon="type:cleanxml"
+            />
+
+            <field
+                    type="text"
+                    name="name"
+                    label="name"
+                    showon="type!:cleanxml"
+            />
+
+            <field
+                    type="text"
+                    name="label"
+                    label="label"
+                    showon="type!:cleanxml"
+            />
+
+            <field
+                    type="textarea"
+                    name="description"
+                    label="description"
+                    showon="type!:cleanxml"
             />
 
             <field
@@ -71,7 +92,7 @@
                     <field
                             type="listfieldsall"
                             name="type"
-                            label="type"
+                            label="field"
                             exclude="subform"
                     >
                         <option value="">- Выберите поле -</option>
@@ -82,6 +103,27 @@
                             name="xml"
                             editor="codemirror"
                             showon="type:cleanxml"
+                    />
+
+                    <field
+                            type="text"
+                            name="name"
+                            label="name"
+                            showon="type!:cleanxml"
+                    />
+
+                    <field
+                            type="text"
+                            name="label"
+                            label="label"
+                            showon="type!:cleanxml"
+                    />
+
+                    <field
+                            type="textarea"
+                            name="description"
+                            label="description"
+                            showon="type!:cleanxml"
                     />
 
                     <field

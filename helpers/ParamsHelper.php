@@ -48,9 +48,10 @@ class ParamsHelper
 		{
 			foreach ($params['rattrs'] as $rattr)
 			{
-				$attrs[$rattr->attr] = $rattr->value;
+				$attrs[$rattr['attr']] = $rattr['value'];
 			}
 		}
+
 
 		$field_attr = $attrs;
 		array_walk($field_attr, static function (&$value, $key) {
@@ -61,25 +62,30 @@ class ParamsHelper
 			}
 			else
 			{
-				$value = $key . '="' . $value . '"';
+				$value = $key . '="' . trim($value) . '"';
 			}
 		});
 
 		$xml .= implode(' ', $field_attr);
 
 		// если сабформа
-		if ($attrs['rtype'] === 'subform')
+		if ($attrs['type'] === 'subform')
 		{
-			$xml   .= '>';
-			$xml   .= '<form>';
-			$xml   .= self::buildTo($params['rsubform']);
+			$xml .= '>';
+			$xml .= '<form>';
+
+			foreach ($params['rsubform'] as $rsubform_field)
+			{
+				$xml .= self::buildTo($rsubform_field);
+			}
+
 			$xml   .= '</form>';
 			$xml   .= '</field>';
 			$close = true;
 		}
 
 		// если списочный
-		if (in_array($attrs['rtype'], ['list', 'radio']))
+		if (in_array($attrs['type'], ['list', 'radio']))
 		{
 			$xml .= '>';
 

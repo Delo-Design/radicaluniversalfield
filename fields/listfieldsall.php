@@ -6,7 +6,7 @@ use Joomla\Filesystem\Path;
 
 FormHelper::loadFieldClass('list');
 JLoader::register('ParamsHelper', JPATH_PLUGINS . '/fields/radicaluniversalfield/helpers/ParamsHelper.php');
-JLoader::register('PathsHelpers', JPATH_PLUGINS . '/fields/radicaluniversalfield/helpers/PathsHelpers.php');
+JLoader::register('PathsHelper', JPATH_PLUGINS . '/fields/radicaluniversalfield/helpers/PathsHelper.php');
 
 /**
  * Class JFormFieldListfieldsall

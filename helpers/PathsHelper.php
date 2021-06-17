@@ -1,6 +1,7 @@
 <?php
 
 use Joomla\Filesystem\Folder;
+use Joomla\Filesystem\Path;
 
 class PathsHelper
 {
@@ -15,7 +16,7 @@ class PathsHelper
 		];
 
 		// загружаем поля от библиотеки lib_fields
-		$path_lib_fields = 'libraries/lib_fields/fields';
+		$path_lib_fields      = 'libraries/lib_fields/fields';
 		$path_lib_fields_full = JPATH_ROOT . '/' . $path_lib_fields;
 
 		if (file_exists($path_lib_fields_full))
@@ -28,6 +29,28 @@ class PathsHelper
 		}
 
 		return $paths;
+	}
+
+
+	public static function getFields()
+	{
+
+		$fields = [];
+
+		$paths = self::get();
+
+		foreach ($paths as $path)
+		{
+			$path_current = Path::clean(JPATH_ROOT . '/' . $path);
+			$files        = Folder::files($path_current);
+
+			foreach ($files as $file)
+			{
+				$fields[] = str_replace('.php', '', $file);
+			}
+		}
+
+		return $fields;
 	}
 
 

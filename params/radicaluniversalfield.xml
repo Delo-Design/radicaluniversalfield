@@ -19,27 +19,6 @@
             />
 
             <field
-                    type="text"
-                    name="rname"
-                    label="name"
-                    showon="rtype!:cleanxml"
-            />
-
-            <field
-                    type="text"
-                    name="rlabel"
-                    label="label"
-                    showon="rtype!:cleanxml"
-            />
-
-            <field
-                    type="textarea"
-                    name="rdescription"
-                    label="description"
-                    showon="rtype!:cleanxml"
-            />
-
-            <field
                     type="subform"
                     name="rattrs"
                     label="attrs"

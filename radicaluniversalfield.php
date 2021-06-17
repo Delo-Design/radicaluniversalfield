@@ -11,6 +11,7 @@ use Joomla\Database\DatabaseDriver;
 
 JLoader::import( 'components.com_fields.libraries.fieldsplugin', JPATH_ADMINISTRATOR);
 
+
 /**
  * Radical universal field plugin.
  *

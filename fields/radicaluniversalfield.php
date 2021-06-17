@@ -1,21 +1,16 @@
 <?php defined('_JEXEC') or die;
 
-use Joomla\CMS\Filter\OutputFilter;
 use Joomla\CMS\Form\FormHelper;
-use Joomla\CMS\HTML\HTMLHelper;
-use Joomla\CMS\Factory;
-use Joomla\CMS\Layout\LayoutHelper;
-use Joomla\CMS\Uri\Uri;
 use Joomla\Filesystem\Path;
 
-JFormHelper::loadFieldClass('subform');
+JFormHelper::loadFieldClass('text');
 JLoader::register('ParamsHelper', JPATH_PLUGINS . '/fields/radicaluniversalfield/helpers/ParamsHelper.php');
-JLoader::register('PathsHelpers', JPATH_PLUGINS . '/fields/radicaluniversalfield/helpers/PathsHelpers.php');
+JLoader::register('PathsHelper', JPATH_PLUGINS . '/fields/radicaluniversalfield/helpers/PathsHelper.php');
 
 /**
  * Class JFormFieldRadicaluniversalfield
  */
-class JFormFieldRadicaluniversalfield extends JFormFieldSubform
+class JFormFieldRadicaluniversalfield extends JFormFieldText
 {
 
 
@@ -26,21 +21,32 @@ class JFormFieldRadicaluniversalfield extends JFormFieldSubform
 		// получаем все параметры поля
 		$params = ParamsHelper::get($field_name);
 
+		$params->set('rname', $field_name);
+		$params->set('rlabel', $this->label);
+		$params->set('rdescription', $this->description);
+
 		// запускаем объект указанного поля
-		$paths = PathsHelper::get();
+		$paths  = PathsHelper::get();
+		$fields = PathsHelper::getFields();
+
 		foreach ($paths as $path)
 		{
 			FormHelper::addFieldPath(Path::clean(JPATH_ROOT . '/' . $path));
 		}
 
+		foreach ($fields as $field)
+		{
+			JFormHelper::loadFieldClass($field);
+		}
+
 		// получаем поля getInput и возвращаем
-		$xml = ParamsHelper::build($params);
+		$xml        = ParamsHelper::build($params);
 		$class_name = 'JFormField' . ucfirst($params->get('rtype'));
 
-		if(class_exists($class_name))
+		if (class_exists($class_name))
 		{
 			$field = new $class_name();
-			$field->setup($xml);
+			$field->setup(new SimpleXMLElement($xml), $this->value);
 			return $field->getInput();
 		}
 

@@ -5,7 +5,7 @@
 
             <field
                     type="listfieldsall"
-                    name="type"
+                    name="rtype"
                     label="field"
             >
                 <option value="">- Выберите поле -</option>
@@ -13,59 +13,59 @@
 
             <field
                     type="editor"
-                    name="xml"
+                    name="rxml"
                     editor="codemirror"
-                    showon="type:cleanxml"
+                    showon="rtype:cleanxml"
             />
 
             <field
                     type="text"
-                    name="name"
+                    name="rname"
                     label="name"
-                    showon="type!:cleanxml"
+                    showon="rtype!:cleanxml"
             />
 
             <field
                     type="text"
-                    name="label"
+                    name="rlabel"
                     label="label"
-                    showon="type!:cleanxml"
+                    showon="rtype!:cleanxml"
             />
 
             <field
                     type="textarea"
-                    name="description"
+                    name="rdescription"
                     label="description"
-                    showon="type!:cleanxml"
+                    showon="rtype!:cleanxml"
             />
 
             <field
                     type="subform"
-                    name="attrs"
+                    name="rattrs"
                     label="attrs"
                     layout="joomla.form.field.subform.repeatable-table"
                     multiple="true"
-                    showon="type!:cleanxml"
+                    showon="rtype!:cleanxml"
             >
                 <form>
                     <field
                             type="text"
-                            name="title"
+                            name="attr"
                     />
                     <field
                             type="text"
-                            name="attrs"
+                            name="value"
                     />
                 </form>
             </field>
 
             <field
                     type="subform"
-                    name="values"
+                    name="rvalues"
                     label="values"
                     layout="joomla.form.field.subform.repeatable-table"
                     multiple="true"
-                    showon="type!:cleanxml[AND]type:list[OR]type:radio"
+                    showon="rtype!:cleanxml[AND]rtype:list[OR]rtype:radio"
             >
                 <form>
                     <field
@@ -81,17 +81,17 @@
 
             <field
                     type="subform"
-                    name="subform"
+                    name="rsubform"
                     label="subform"
                     layout="joomla.form.field.subform.repeatable"
                     multiple="true"
-                    showon="type!:cleanxml[AND]type:subform"
+                    showon="rtype!:cleanxml[AND]rtype:subform"
             >
                 <form>
 
                     <field
                             type="listfieldsall"
-                            name="type"
+                            name="rtype"
                             label="field"
                             exclude="subform"
                     >
@@ -100,48 +100,48 @@
 
                     <field
                             type="editor"
-                            name="xml"
+                            name="rxml"
                             editor="codemirror"
-                            showon="type:cleanxml"
+                            showon="rtype:cleanxml"
                     />
 
                     <field
                             type="text"
-                            name="name"
+                            name="rname"
                             label="name"
-                            showon="type!:cleanxml"
+                            showon="rtype!:cleanxml"
                     />
 
                     <field
                             type="text"
-                            name="label"
+                            name="rlabel"
                             label="label"
-                            showon="type!:cleanxml"
+                            showon="rtype!:cleanxml"
                     />
 
                     <field
                             type="textarea"
-                            name="description"
+                            name="rdescription"
                             label="description"
-                            showon="type!:cleanxml"
+                            showon="rtype!:cleanxml"
                     />
 
                     <field
                             type="subform"
-                            name="attrs"
+                            name="rattrs"
                             label="attrs"
                             layout="joomla.form.field.subform.repeatable-table"
                             multiple="true"
-                            showon="type!:cleanxml"
+                            showon="rtype!:cleanxml"
                     >
                         <form>
                             <field
                                     type="text"
-                                    name="title"
+                                    name="attr"
                             />
                             <field
                                     type="text"
-                                    name="attrs"
+                                    name="value"
                             />
                         </form>
                     </field>

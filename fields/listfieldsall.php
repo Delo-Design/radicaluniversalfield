@@ -5,6 +5,8 @@ use Joomla\Filesystem\Folder;
 use Joomla\Filesystem\Path;
 
 FormHelper::loadFieldClass('list');
+JLoader::register('ParamsHelper', JPATH_PLUGINS . '/fields/radicaluniversalfield/helpers/ParamsHelper.php');
+JLoader::register('PathsHelpers', JPATH_PLUGINS . '/fields/radicaluniversalfield/helpers/PathsHelpers.php');
 
 /**
  * Class JFormFieldListfieldsall
@@ -43,23 +45,7 @@ class JFormFieldListfieldsall extends JFormFieldList
 			]
 		];
 
-		// загружаем все стандартные поля
-		$paths = [
-			'libraries/joomla/form/fields'
-		];
-
-		// загружаем поля от библиотеки lib_fields
-		$path_lib_fields = 'libraries/lib_fields/fields';
-		$path_lib_fields_full = JPATH_ROOT . '/' . $path_lib_fields;
-
-		if (file_exists($path_lib_fields_full))
-		{
-			$folders = Folder::folders($path_lib_fields_full);
-			foreach ($folders as $folder)
-			{
-				$paths[] = $path_lib_fields . '/' . $folder;
-			}
-		}
+		$paths = PathsHelper::get();
 
 		foreach ($paths as $path)
 		{

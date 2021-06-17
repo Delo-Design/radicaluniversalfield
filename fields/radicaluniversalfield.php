@@ -21,10 +21,6 @@ class JFormFieldRadicaluniversalfield extends JFormFieldText
 		// получаем все параметры поля
 		$params = ParamsHelper::get($field_name);
 
-		$params->set('rname', $field_name);
-		$params->set('rlabel', $this->label);
-		$params->set('rdescription', $this->description);
-
 		// запускаем объект указанного поля
 		$paths  = PathsHelper::get();
 		$fields = PathsHelper::getFields();
@@ -39,14 +35,34 @@ class JFormFieldRadicaluniversalfield extends JFormFieldText
 			JFormHelper::loadFieldClass($field);
 		}
 
+		if ($params->get('rtype') === 'cleanxml')
+		{
+			$xml        = new SimpleXMLElement($params->get('cleanxml'));
+			$type       = $xml->attributes()->type;
+			$class_name = 'JFormField' . ucfirst(strtolower($type));
+
+			if (class_exists($class_name))
+			{
+				$field = new $class_name();
+				$field->setup($xml, $this->value);
+
+				return $field->getInput();
+			}
+		}
+
+		$params->set('rname', $field_name);
+		$params->set('rlabel', $this->label);
+		$params->set('rdescription', $this->description);
+
 		// получаем поля getInput и возвращаем
 		$xml        = ParamsHelper::build($params);
-		$class_name = 'JFormField' . ucfirst($params->get('rtype'));
+		$class_name = 'JFormField' . ucfirst(strtolower($params->get('rtype')));
 
 		if (class_exists($class_name))
 		{
 			$field = new $class_name();
 			$field->setup(new SimpleXMLElement($xml), $this->value);
+
 			return $field->getInput();
 		}
 

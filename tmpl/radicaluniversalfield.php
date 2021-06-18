@@ -1,4 +1,4 @@
-<?php
+<?php defined('JPATH_PLATFORM') or die;
 extract($displayData);
 
 $parse = json_decode($field->value, JSON_OBJECT_AS_ARRAY);

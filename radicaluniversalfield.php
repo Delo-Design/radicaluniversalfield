@@ -39,9 +39,6 @@ class PlgFieldsRadicaluniversalfield extends FieldsPlugin
 			return null;
 		}
 
-		// Create the node
-		$orgdoc = new DOMDocument;
-
 		// получаем все параметры поля
 		$params = ParamsHelper::get($field->name);
 

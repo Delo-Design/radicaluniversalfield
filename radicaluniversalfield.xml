@@ -35,8 +35,8 @@
 				<field
 						name="extendfield"
 						type="textarea"
-						label="PLG_RADICAL_MULTI_FIELD_PARAMS_EXTEND_FIELDS_LABEL"
-						description="PLG_RADICAL_MULTI_FIELD_PARAMS_EXTEND_FIELDS_DESC"
+						label="PLG_RADICALUNIVERSALFIELD_CONFIG_EXTEND_LABEL"
+						description="PLG_RADICALUNIVERSALFIELD_CONFIG_EXTEND_DESC"
 						required="false"
 						default=""
 						size="10"

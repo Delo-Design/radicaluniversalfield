@@ -4,16 +4,44 @@
         <fieldset name="fieldparams">
 
             <field
+                    type="layouts"
+                    name="layoutdefault"
+                    label="PLG_RADICALUNIVERSALFIELD_PARAMS_LAYOUTS_DEFAULT_LABEL"
+                    description="PLG_RADICALUNIVERSALFIELD_PARAMS_LAYOUTS_DEFAULT_DESC"
+                    values="PathsHelper::getLayouts"
+                    addfieldpath="/libraries/lib_fields/fields/layouts"
+            />
+
+            <field
+                    type="layouts"
+                    name="layoutcategory"
+                    label="PLG_RADICALUNIVERSALFIELD_PARAMS_LAYOUTS_CATEGORY_LABEL"
+                    description="PLG_RADICALUNIVERSALFIELD_PARAMS_LAYOUTS_CATEGORY_DESC"
+                    values="PathsHelper::getLayouts"
+                    addfieldpath="/libraries/lib_fields/fields/layouts"
+            />
+
+            <field
+                    type="layouts"
+                    name="layoutitem"
+                    label="PLG_RADICALUNIVERSALFIELD_PARAMS_LAYOUTS_ITEM_LABEL"
+                    description="PLG_RADICALUNIVERSALFIELD_PARAMS_LAYOUTS_ITEM_DESC"
+                    values="PathsHelper::getLayouts"
+                    addfieldpath="/libraries/lib_fields/fields/layouts"
+            />
+
+            <field
                     type="listfieldsall"
                     name="rtype"
-                    label="field"
+                    label="PLG_RADICALUNIVERSALFIELD_PARAMS_RTYPE"
             >
-                <option value="">- Выберите поле -</option>
+                <option value="">PLG_RADICALUNIVERSALFIELD_PARAMS_RTYPE_SELECT</option>
             </field>
 
             <field
                     type="editor"
                     name="rxml"
+                    label="PLG_RADICALUNIVERSALFIELD_PARAMS_RXML"
                     editor="codemirror"
                     showon="rtype:cleanxml"
             />
@@ -21,7 +49,7 @@
             <field
                     type="subform"
                     name="rattrs"
-                    label="attrs"
+                    label="PLG_RADICALUNIVERSALFIELD_PARAMS_RATTRS"
                     layout="joomla.form.field.subform.repeatable-table"
                     multiple="true"
                     showon="rtype!:cleanxml"
@@ -30,10 +58,12 @@
                     <field
                             type="text"
                             name="attr"
+                            label="PLG_RADICALUNIVERSALFIELD_PARAMS_RATTRS_ATTR"
                     />
                     <field
                             type="text"
                             name="value"
+                            label="PLG_RADICALUNIVERSALFIELD_PARAMS_RATTRS_VALUE"
                     />
                 </form>
             </field>
@@ -41,7 +71,7 @@
             <field
                     type="subform"
                     name="rvalues"
-                    label="values"
+                    label="PLG_RADICALUNIVERSALFIELD_PARAMS_RVALUES"
                     layout="joomla.form.field.subform.repeatable-table"
                     multiple="true"
                     showon="rtype!:cleanxml[AND]rtype:list[OR]rtype:radio"
@@ -50,10 +80,12 @@
                     <field
                             type="text"
                             name="title"
+                            label="PLG_RADICALUNIVERSALFIELD_PARAMS_RVALUES_TITLE"
                     />
                     <field
                             type="text"
                             name="value"
+                            label="PLG_RADICALUNIVERSALFIELD_PARAMS_RVALUES_VALUE"
                     />
                 </form>
             </field>
@@ -61,7 +93,7 @@
             <field
                     type="subform"
                     name="rsubform"
-                    label="subform"
+                    label="PLG_RADICALUNIVERSALFIELD_PARAMS_RSUBFORM"
                     layout="joomla.form.field.subform.repeatable"
                     multiple="true"
                     showon="rtype!:cleanxml[AND]rtype:subform"
@@ -71,15 +103,16 @@
                     <field
                             type="listfieldsall"
                             name="rtype"
-                            label="field"
+                            label="PLG_RADICALUNIVERSALFIELD_PARAMS_RTYPE"
                             exclude="subform"
                     >
-                        <option value="">- Выберите поле -</option>
+                        <option value="">PLG_RADICALUNIVERSALFIELD_PARAMS_RTYPE_SELECT</option>
                     </field>
 
                     <field
                             type="editor"
                             name="rxml"
+                            label="PLG_RADICALUNIVERSALFIELD_PARAMS_RXML"
                             editor="codemirror"
                             showon="rtype:cleanxml"
                     />
@@ -87,28 +120,28 @@
                     <field
                             type="text"
                             name="rname"
-                            label="name"
+                            label="PLG_RADICALUNIVERSALFIELD_PARAMS_RNAME"
                             showon="rtype!:cleanxml"
                     />
 
                     <field
                             type="text"
                             name="rlabel"
-                            label="label"
+                            label="PLG_RADICALUNIVERSALFIELD_PARAMS_RLABEL"
                             showon="rtype!:cleanxml"
                     />
 
                     <field
                             type="textarea"
                             name="rdescription"
-                            label="description"
+                            label="PLG_RADICALUNIVERSALFIELD_PARAMS_RDESCRIPTION"
                             showon="rtype!:cleanxml"
                     />
 
                     <field
                             type="subform"
                             name="rattrs"
-                            label="attrs"
+                            label="PLG_RADICALUNIVERSALFIELD_PARAMS_RATTRS"
                             layout="joomla.form.field.subform.repeatable-table"
                             multiple="true"
                             showon="rtype!:cleanxml"
@@ -117,10 +150,12 @@
                             <field
                                     type="text"
                                     name="attr"
+                                    label="PLG_RADICALUNIVERSALFIELD_PARAMS_RATTRS_ATTR"
                             />
                             <field
                                     type="text"
                                     name="value"
+                                    label="PLG_RADICALUNIVERSALFIELD_PARAMS_RVALUES_VALUE"
                             />
                         </form>
                     </field>

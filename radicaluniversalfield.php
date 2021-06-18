@@ -1,8 +1,9 @@
 <?php defined('_JEXEC') or die;
 
+use Joomla\CMS\Application\CMSApplication;
 use Joomla\CMS\Factory;
 use Joomla\CMS\Form\FormHelper;
-use Joomla\CMS\Plugin\PluginHelper;
+use Joomla\CMS\Layout\FileLayout;
 use Joomla\Database\DatabaseDriver;
 use Joomla\Filesystem\Path;
 
@@ -18,6 +19,24 @@ JLoader::register('PathsHelper', JPATH_PLUGINS . '/fields/radicaluniversalfield/
  */
 class PlgFieldsRadicaluniversalfield extends FieldsPlugin
 {
+
+
+	/**
+	 * Application object
+	 *
+	 * @var    CMSApplication
+	 * @since  1.0.0
+	 */
+	protected $app;
+
+
+	/**
+	 * Affects constructor behavior. If true, language files will be loaded automatically.
+	 *
+	 * @var    boolean
+	 * @since  1.0.0
+	 */
+	protected $autoloadLanguage = true;
 
 
 	/**
@@ -60,7 +79,7 @@ class PlgFieldsRadicaluniversalfield extends FieldsPlugin
 		$params->set('rlabel', $field->label);
 		$params->set('rdescription', $field->description);
 
-		// получаем поля getInput и возвращаем
+		// получаем карту в виде массива
 		$xml        = ParamsHelper::buildArray($params);
 		$class_name = 'JFormField' . ucfirst(strtolower($params->get('rtype')));
 
@@ -68,6 +87,11 @@ class PlgFieldsRadicaluniversalfield extends FieldsPlugin
 		{
 			$node = $parent->appendChild(new DOMElement('field'));
 
+			// TODO переделать на анализ xml, чтобы можно было рекурсивно строить по чистому xml всю карту для DOMelement.
+			// Иначе никак не сделать. Joomla не передает доступ к DOMdocument и не импортировать туда весь узел из xml, поэтому надо рекурсивно проходить
+
+
+			// проходим карту и создаем элементы
 			foreach ($xml as $attr => $value)
 			{
 				if (is_array($value))
@@ -136,15 +160,15 @@ class PlgFieldsRadicaluniversalfield extends FieldsPlugin
 		$view          = $input->get('view', 'article');
 		$context_input = $option . '.' . $view;
 
-		if (!empty($item->context_radicalmultifield))
+		if (!empty($item->context_local))
 		{
-			$context_input = $item->context_radicalmultifield;
+			$context_input = $item->context_local;
 		}
 
 		// Merge the params from the plugin and field which has precedence
 		$fieldParams = clone $this->params;
 		$fieldParams->merge($field->fieldparams);
-		$template = $fieldParams->get('templatedefault');
+		$layout = $fieldParams->get('layoutdefault');
 
 		$template_category = [
 			'com_content.category',
@@ -160,38 +184,22 @@ class PlgFieldsRadicaluniversalfield extends FieldsPlugin
 			'com_contact.contact',
 		];
 
-		if (empty($template))
-		{
-			if (in_array($context_input, $template_category))
-			{
-				$template = $fieldParams->get('templatecategory', $template);
-			}
 
-			if (in_array($context_input, $template_item))
-			{
-				$template = $fieldParams->get('templatearticle', $template);
-			}
+		if (in_array($context_input, $template_category))
+		{
+			$layout = $fieldParams->get('layoutcategory', $layout);
 		}
 
-		// Get the path for the layout file
-		if (substr_count($field->type, '_') > 0)
+		if (in_array($context_input, $template_item))
 		{
-			$tmp  = explode('_', $field->type);
-			$path = PluginHelper::getLayoutPath('radicalmultifield', $tmp[1], $template);
-		}
-		else
-		{
-			$path = PluginHelper::getLayoutPath('fields', $field->type, $template);
+			$layout = $fieldParams->get('layoutitem', $layout);
 		}
 
 
-		// Render the layout
-		ob_start();
-		include $path;
-		$output = ob_get_clean();
+		$file_layout = new FileLayout($layout);
+		$file_layout->addIncludePaths(PathsHelper::getLayouts());
 
-		// Return the output
-		return $output;
+		return $file_layout->render(['field' => $field]);
 	}
 
 

@@ -3,6 +3,8 @@
 use Joomla\Filesystem\Folder;
 use Joomla\Filesystem\Path;
 
+JLoader::register('ConfigHelper', JPATH_PLUGINS . '/fields/radicaluniversalfield/helpers/ConfigHelper.php');
+
 class PathsHelper
 {
 
@@ -31,6 +33,14 @@ class PathsHelper
 			}
 		}
 
+		$extend_fields = ConfigHelper::get('extendfield', '');
+
+		if (!empty($extend_fields))
+		{
+			$extend_fields_paths = explode("\n", $extend_fields);
+			$paths               = array_merge($paths, $extend_fields_paths);
+		}
+
 		return $paths;
 	}
 
@@ -46,10 +56,32 @@ class PathsHelper
 		{
 			$path_current = Path::clean(JPATH_ROOT . '/' . $path);
 			$files        = Folder::files($path_current);
+			$folders      = Folder::folders($path_current);
 
 			foreach ($files as $file)
 			{
+				$content = file_get_contents($path_current . '/' . $file);
+				if(strpos($content, 'JFormField') === false)
+				{
+					continue;
+				}
+
 				$fields[] = str_replace('.php', '', $file);
+			}
+
+			foreach ($folders as $folder)
+			{
+				$files = Folder::files($path_current . '/' . $folder);
+				foreach ($files as $file)
+				{
+					$content = file_get_contents($path_current . '/' . $folder . '/' . $file);
+					if(strpos($content, 'JFormField') === false)
+					{
+						continue;
+					}
+
+					$fields[] = $folder . '_' . str_replace('.php', '', $file);
+				}
 			}
 		}
 

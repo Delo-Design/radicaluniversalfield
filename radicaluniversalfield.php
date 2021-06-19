@@ -46,7 +46,6 @@ class PlgFieldsRadicaluniversalfield extends FieldsPlugin
 	public function onCustomFieldsPrepareDom($field, DOMElement $parent, JForm $form)
 	{
 
-
 		// Check if the field should be processed by us
 		if (!$this->isTypeSupported($field->type))
 		{
@@ -73,7 +72,7 @@ class PlgFieldsRadicaluniversalfield extends FieldsPlugin
 
 		foreach ($fields as $rfield)
 		{
-			JFormHelper::loadFieldClass($rfield);
+			FormHelper::loadFieldClass($rfield);
 		}
 
 		$params->set('rname', $field->name);

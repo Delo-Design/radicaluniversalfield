@@ -1,8 +1,6 @@
 <?php defined('_JEXEC') or die;
 
 use Joomla\CMS\Form\FormHelper;
-use Joomla\Filesystem\Folder;
-use Joomla\Filesystem\Path;
 
 FormHelper::loadFieldClass('list');
 JLoader::register('ParamsHelper', JPATH_PLUGINS . '/fields/radicaluniversalfield/helpers/ParamsHelper.php');
@@ -26,12 +24,12 @@ class JFormFieldListfieldsall extends JFormFieldList
 		$exclude_fields = [
 			'subformmore'
 		];
-		$exclude_attr = $this->getAttribute('exclude', '');
+		$exclude_attr   = $this->getAttribute('exclude', '');
 
-		if(!empty($exclude_attr))
+		if (!empty($exclude_attr))
 		{
 			$exclude_attr_array = explode(',', $exclude_attr);
-			if(is_array($exclude_attr_array))
+			if (is_array($exclude_attr_array))
 			{
 				$exclude_fields = array_merge($exclude_fields, $exclude_attr_array);
 			}
@@ -39,44 +37,26 @@ class JFormFieldListfieldsall extends JFormFieldList
 
 
 		$options = [
-			(object) [
+			/*(object) [
 				'text'  => 'Clean XML',
 				'value' => 'cleanxml',
-			]
+			]*/
 		];
 
-		$paths = PathsHelper::get();
-
-		foreach ($paths as $path)
+		$fields = PathsHelper::getFields();
+		foreach ($fields as $field)
 		{
-			$path_current = Path::clean(JPATH_ROOT . '/' . $path);
-			$files        = Folder::files($path_current);
-
-			foreach ($files as $file)
+			if (in_array($field, $exclude_fields))
 			{
-				$field = str_replace('.php', '', $file);
-
-				$exclude_find = false;
-				foreach ($exclude_fields as $exclude)
-				{
-					if (strpos($file, $exclude) !== false)
-					{
-						$exclude_find = true;
-						break;
-					}
-				}
-
-				if ($exclude_find)
-				{
-					continue;
-				}
-
-				$option        = new stdClass();
-				$option->value = $field;
-				$option->text  = $field;
-				$options[]     = $option;
+				continue;
 			}
+
+			$option        = new stdClass();
+			$option->value = $field;
+			$option->text  = $field;
+			$options[]     = $option;
 		}
+
 
 		return array_merge(parent::getOptions(), $options);
 	}

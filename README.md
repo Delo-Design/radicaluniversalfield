@@ -23,8 +23,8 @@
 
 
 ###  Документация
-- [Настройки поля]()
-- [Как загрузить свои поля JForm]()
-- [Стандартные поля JForm Joomla]()
-- [Как создать шаблоны]()
-- [Выгрузка поля на примере com_content]()
+- [Настройки поля](https://github.com/Delo-Design/radicaluniversalfield/blob/master/docs/params.md)
+- [Как загрузить свои поля JForm](https://github.com/Delo-Design/radicaluniversalfield/blob/master/docs/loadfields.md)
+- [Стандартные поля JForm Joomla](https://github.com/Delo-Design/radicaluniversalfield/blob/master/docs/listfields.md)
+- [Как создать шаблоны](https://github.com/Delo-Design/radicaluniversalfield/blob/master/docs/templates.md)
+- [Выгрузка поля на примере com_content](https://github.com/Delo-Design/radicaluniversalfield/blob/master/docs/output.md)

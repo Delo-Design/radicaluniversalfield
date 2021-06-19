@@ -17,7 +17,7 @@
 
 
 ### Где скачать?
-- В релизах в этом репозитории [Просмотреть](https://github.com/Delo-Design/radicaluniversalfield/releases)
+- В релизах в этом репозитории. [Просмотреть](https://github.com/Delo-Design/radicaluniversalfield/releases)
 - Или последний архив с hika.su. [Скачать](https://hika.su/builds/free/dev_pkg_radicaluniversalfield.zip)
 
 
@@ -25,3 +25,4 @@
 - [Настройки поля]()
 - [Как загрузить свои поля JForm]()
 - [Как создать шаблоны]()
+- [Выгрузка поля на примере com_content]()

@@ -10,6 +10,7 @@ use Joomla\Filesystem\Path;
 JLoader::import('components.com_fields.libraries.fieldsplugin', JPATH_ADMINISTRATOR);
 JLoader::register('ParamsHelper', JPATH_PLUGINS . '/fields/radicaluniversalfield/helpers/ParamsHelper.php');
 JLoader::register('PathsHelper', JPATH_PLUGINS . '/fields/radicaluniversalfield/helpers/PathsHelper.php');
+JLoader::register('LayoutPathsHelper', JPATH_LIBRARIES . '/lib_fields/fields/layouts/helpers/LayoutPathsHelper.php');
 
 /**
  * Radical universal field plugin.
@@ -195,10 +196,15 @@ class PlgFieldsRadicaluniversalfield extends FieldsPlugin
 			$layout = $fieldParams->get('layoutitem', $layout);
 		}
 
-
+		[$theme, $layout] = explode('::', $layout);
 		$file_layout = new FileLayout($layout);
-		$file_layout->addIncludePaths(PathsHelper::getLayouts());
+		$paths = PathsHelper::getLayouts();
+		foreach ($paths as &$path)
+		{
+			$path = str_replace('{TEMPLATES}', JPATH_THEMES . '/'. $theme, $path);
+		}
 
+		$file_layout->addIncludePaths($paths);
 		return $file_layout->render(['field' => $field]);
 	}
 

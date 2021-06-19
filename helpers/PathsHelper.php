@@ -1,12 +1,13 @@
 <?php
 
-use Joomla\CMS\Factory;
-use Joomla\CMS\Layout\FileLayout;
 use Joomla\Filesystem\Folder;
 use Joomla\Filesystem\Path;
 
 class PathsHelper
 {
+
+
+	public static $template;
 
 
 	public static function get()
@@ -58,16 +59,11 @@ class PathsHelper
 
 	public static function getLayouts()
 	{
-		$template = Factory::getApplication()->getTemplate();
-
-		$paths = [
+		return [
+			'{TEMPLATES}/html/plg_fields_radicaluniversalfield',
 			JPATH_PLUGINS . '/fields/radicaluniversalfield/tmpl',
-			JPATH_THEMES . '/' . $template . '/html/plg_fields_radicaluniversalfield'
 		];
-
-		$layout = new FileLayout('default');
-
-		return array_merge($layout->getIncludePaths(), $paths);
 	}
+
 
 }

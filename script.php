@@ -1,7 +1,6 @@
 <?php defined('_JEXEC') or die;
 
 use Joomla\CMS\Factory;
-use Joomla\CMS\Language\Text;
 
 /**
  * Class plgFieldsRadicaluniversalfieldInstallerScript
@@ -9,36 +8,31 @@ use Joomla\CMS\Language\Text;
 class plgFieldsRadicaluniversalfieldInstallerScript
 {
 
-	/**
-	 * @param $type
-	 * @param $parent
-	 *
-	 * @throws Exception
-	 */
-	function postflight($type, $parent)
-	{
-		$db    = Factory::getDbo();
-		$query = $db->getQuery(true)
-			->update('#__extensions')
-			->set('enabled=1')
-			->where('type=' . $db->q('plugin'))
-			->where('element=' . $db->q('radicaluniversalfield'));
-		$db->setQuery($query)->execute();
-	}
 
-	/**
-	 * @param $type
-	 * @param $parent
-	 *
-	 * @throws Exception
-	 */
-	function preflight($type, $parent)
+	public function postflight($type, $parent)
 	{
-		if ((version_compare(PHP_VERSION, '5.6.0') < 0))
+		// Enable plugin
+		if ($type === 'install')
 		{
-			Factory::getApplication()->enqueueMessage(Text::_('PLG_RADICAL_MULTI_FIELD_WRONG_PHP'), 'error');
-
-			return false;
+			$this->enablePlugin($parent);
 		}
+
+		return true;
 	}
+
+
+	protected function enablePlugin($parent)
+	{
+		// Prepare plugin object
+		$plugin          = new stdClass();
+		$plugin->type    = 'plugin';
+		$plugin->element = $parent->getElement();
+		$plugin->folder  = (string) $parent->getParent()->manifest->attributes()['group'];
+		$plugin->enabled = 1;
+
+		// Update record
+		Factory::getDbo()->updateObject('#__extensions', $plugin, ['type', 'element', 'folder']);
+	}
+
+
 }

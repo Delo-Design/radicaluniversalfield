@@ -9,6 +9,7 @@
                     label="PLG_RADICALUNIVERSALFIELD_PARAMS_LAYOUTS_DEFAULT_LABEL"
                     description="PLG_RADICALUNIVERSALFIELD_PARAMS_LAYOUTS_DEFAULT_DESC"
                     values="PathsHelper::getLayouts"
+                    target="plugin.fields.radicaluniversalfield"
                     addfieldpath="/libraries/lib_fields/fields/layouts"
             />
 

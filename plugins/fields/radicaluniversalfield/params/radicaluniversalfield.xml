@@ -48,6 +48,13 @@
             />
 
             <field
+                    type="text"
+                    name="rdefault"
+                    label="PLG_RADICALUNIVERSALFIELD_PARAMS_RDEFAULT"
+                    showon="rtype!:cleanxml"
+            />
+            
+            <field
                     type="subform"
                     name="rattrs"
                     label="PLG_RADICALUNIVERSALFIELD_PARAMS_RATTRS"
@@ -136,6 +143,13 @@
                             type="textarea"
                             name="rdescription"
                             label="PLG_RADICALUNIVERSALFIELD_PARAMS_RDESCRIPTION"
+                            showon="rtype!:cleanxml"
+                    />
+
+                    <field
+                            type="text"
+                            name="rdefault"
+                            label="PLG_RADICALUNIVERSALFIELD_PARAMS_RDEFAULT"
                             showon="rtype!:cleanxml"
                     />
 

@@ -20,13 +20,13 @@ categoryparent<br/>
 <br/>
 <br/>
 
-administrator/components/com_categories/models/fields/modal<br/>
-category<br/>
+administrator/components/com_categories/models/fields<br/>
+modal_category<br/>
 <br/>
 <br/>
 
-administrator/components/com_contact/models/fields/modal<br/>
-contact<br/>
+administrator/components/com_contact/models/fields<br/>
+modal_contact<br/>
 <br/>
 <br/>
 
@@ -35,8 +35,8 @@ voteradio<br/>
 <br/>
 <br/>
 
-administrator/components/com_content/models/fields/modal<br/>
-article<br/>
+administrator/components/com_content/models/fields<br/>
+modal_article<br/>
 <br/>
 <br/>
 
@@ -72,8 +72,8 @@ menutype<br/>
 <br/>
 
 
-administrator/components/com_menus/models/fields/modal<br/>
-menu<br/>
+administrator/components/com_menus/models/fields<br/>
+modal_menu<br/>
 <br/>
 <br/>
 
@@ -91,8 +91,8 @@ newsfeeds<br/>
 <br/>
 <br/>
 
-administrator/components/com_newsfeeds/models/fields/modal<br/>
-newsfeed<br/>
+administrator/components/com_newsfeeds/models/fields<br/>
+modal_newsfeed<br/>
 <br/>
 <br/>
 

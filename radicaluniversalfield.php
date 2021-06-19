@@ -196,15 +196,25 @@ class PlgFieldsRadicaluniversalfield extends FieldsPlugin
 			$layout = $fieldParams->get('layoutitem', $layout);
 		}
 
-		[$theme, $layout] = explode('::', $layout);
 		$file_layout = new FileLayout($layout);
-		$paths = PathsHelper::getLayouts();
+		$paths       = PathsHelper::getLayouts();
+
+		if (strpos($layout, '::') !== false)
+		{
+			[$theme, $layout] = explode('::', $layout);
+		}
+		else
+		{
+			$theme = $this->app->getTemplate();
+		}
+
 		foreach ($paths as &$path)
 		{
-			$path = str_replace('{TEMPLATES}', JPATH_THEMES . '/'. $theme, $path);
+			$path = str_replace('{TEMPLATES}', JPATH_THEMES . '/' . $theme, $path);
 		}
 
 		$file_layout->addIncludePaths($paths);
+
 		return $file_layout->render(['field' => $field]);
 	}
 

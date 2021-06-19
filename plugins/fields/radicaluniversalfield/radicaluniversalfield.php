@@ -91,6 +91,8 @@ class PlgFieldsRadicaluniversalfield extends FieldsPlugin
 			// Иначе никак не сделать. Joomla не передает доступ к DOMdocument и не импортировать туда весь узел из xml, поэтому надо рекурсивно проходить
 
 
+			// TODO переделать на рекурсию
+
 			// проходим карту и создаем элементы
 			foreach ($xml as $attr => $value)
 			{
@@ -105,6 +107,21 @@ class PlgFieldsRadicaluniversalfield extends FieldsPlugin
 							$node = $node->appendChild(new DOMElement('field'));
 							foreach ($form_fields as $form_field_key => $form_field_value)
 							{
+								if (is_array($form_field_value))
+								{
+									if ($form_field_key === 'options')
+									{
+										foreach ($form_field_value as $item)
+										{
+											$node = $node->appendChild(new DOMElement('option'));
+											$node->setAttribute('value', $item['value']);
+											$node->textContent = $item['title'];
+											$node              = $node->parentNode;
+										}
+										continue;
+									}
+								}
+
 								$node->setAttribute($form_field_key, $form_field_value);
 							}
 							$node = $node->parentNode;
@@ -112,7 +129,7 @@ class PlgFieldsRadicaluniversalfield extends FieldsPlugin
 						$node = $node->parentNode;
 					}
 
-					if ($attr === 'list')
+					if ($attr === 'options')
 					{
 						foreach ($value as $item)
 						{

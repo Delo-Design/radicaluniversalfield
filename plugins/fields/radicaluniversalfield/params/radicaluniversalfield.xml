@@ -161,6 +161,28 @@
                         </form>
                     </field>
 
+                    <field
+                            type="subform"
+                            name="rvalues"
+                            label="PLG_RADICALUNIVERSALFIELD_PARAMS_RVALUES"
+                            layout="joomla.form.field.subform.repeatable-table"
+                            multiple="true"
+                            showon="rtype!:cleanxml[AND]rtype:list[OR]rtype:radio"
+                    >
+                        <form>
+                            <field
+                                    type="text"
+                                    name="title"
+                                    label="PLG_RADICALUNIVERSALFIELD_PARAMS_RVALUES_TITLE"
+                            />
+                            <field
+                                    type="text"
+                                    name="value"
+                                    label="PLG_RADICALUNIVERSALFIELD_PARAMS_RVALUES_VALUE"
+                            />
+                        </form>
+                    </field>
+
                 </form>
             </field>
         </fieldset>

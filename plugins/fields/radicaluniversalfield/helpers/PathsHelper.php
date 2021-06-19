@@ -1,4 +1,4 @@
-<?php
+<?php defined('_JEXEC') or die;
 
 use Joomla\Filesystem\Folder;
 use Joomla\Filesystem\Path;

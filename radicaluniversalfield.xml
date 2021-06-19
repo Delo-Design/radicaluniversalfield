@@ -19,10 +19,6 @@
 		<language tag="ru-RU">ru-RU/ru-RU.plg_fields_radicaluniversalfield.sys.ini</language>
 	</languages>
 
-	<updateservers>
-		<server type="extension" priority="1" name="Radical universal field">https://hika.su/update/free/plg_radicaluniversalfield.xml</server>
-	</updateservers>
-
 	<files>
 		<filename plugin="radicaluniversalfield">radicaluniversalfield.php</filename>
 		<folder>fields</folder>

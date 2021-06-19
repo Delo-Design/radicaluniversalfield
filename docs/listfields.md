@@ -121,7 +121,7 @@ levels.php<br/>
 <br/>
 
 
-libraries/joomla/form/fields
+libraries/joomla/form/fieldsrange.php
 accesslevel.php<br/>
 aliastag.php<br/>
 cachehandler.php<br/>

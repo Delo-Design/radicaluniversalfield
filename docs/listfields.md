@@ -115,7 +115,7 @@ levels<br/>
 <br/>
 
 
-libraries/joomla/form/fields<br/>
+libraries/joomla/form/fields (указывать путь не надо в настройках, в плагине поля уже сразу грузится этот путь)<br/>
 accesslevel<br/>
 aliastag<br/>
 cachehandler<br/>

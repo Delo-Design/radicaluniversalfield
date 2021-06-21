@@ -49,7 +49,7 @@ $parse = json_decode($field->value, JSON_OBJECT_AS_ARRAY);
     <tbody>
         <?php foreach($parse as $item) : ?>
             <tr>
-                <td><img src="<?php echo $item['image']; ?>" alt="<?php echo $item['title']; ?>"/></td>
+                <td><img src="<?php echo $item['image']; ?>" alt="<?php echo htmlspecialchars($item['title'], ENT_QUOTES); ?>"/></td>
                 <td><?php echo $item['title']; ?></td>
                 <td><?php echo $item['description']; ?></td>
             </tr>

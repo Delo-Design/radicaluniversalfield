@@ -66,6 +66,7 @@ class PlgFieldsRadicaluniversalfield extends FieldsPlugin
 		$paths  = PathsHelper::get();
 		$fields = PathsHelper::getFields();
 
+		// TODO переделать загрузку только тех полей, которые есть в указанных настройках
 		foreach ($paths as $path)
 		{
 			FormHelper::addFieldPath(Path::clean(JPATH_ROOT . '/' . $path));

@@ -54,7 +54,25 @@
                     label="PLG_RADICALUNIVERSALFIELD_PARAMS_RDEFAULT"
                     showon="rtype!:cleanxml"
             />
-            
+
+            <field
+                    type="note"
+                    name="rattrsdefault"
+                    label="PLG_RADICALUNIVERSALFIELD_PARAMS_RATTRSSTANDART_LABEL"
+                    class="alert alert-info"
+                    description="PLG_RADICALUNIVERSALFIELD_PARAMS_RATTRSSTANDART_DESC"
+                    showon="rtype!:cleaxml"
+            />
+
+            <field
+                    type="note"
+                    name="rattrsforsubform"
+                    label="PLG_RADICALUNIVERSALFIELD_PARAMS_RATTRSFORSUBFORM_LABEL"
+                    class="alert alert-warning"
+                    description="PLG_RADICALUNIVERSALFIELD_PARAMS_RATTRSFORSUBFORM_DESC"
+                    showon="rtype:subform"
+            />
+
             <field
                     type="subform"
                     name="rattrs"

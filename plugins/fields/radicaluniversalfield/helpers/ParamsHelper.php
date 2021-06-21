@@ -123,6 +123,13 @@ class ParamsHelper
 			'description' => $params['rdescription'],
 		];
 
+
+		if (isset($params['rdefault']) && !empty($params['rdefault']))
+		{
+			$attrs['default'] = $params['rdefault'];
+		}
+
+
 		if (isset($params['rattrs']) && is_array($params['rattrs']))
 		{
 			foreach ($params['rattrs'] as $rattr)

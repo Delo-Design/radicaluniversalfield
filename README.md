@@ -34,4 +34,3 @@ Radical universal field является завершающим этапом и�
 - [Как загрузить свои поля JForm](https://github.com/Delo-Design/radicaluniversalfield/blob/master/docs/loadfields.md)
 - [Стандартные поля JForm Joomla](https://github.com/Delo-Design/radicaluniversalfield/blob/master/docs/listfields.md)
 - [Как создать шаблоны](https://github.com/Delo-Design/radicaluniversalfield/blob/master/docs/templates.md)
-- [Выгрузка поля на примере com_content](https://github.com/Delo-Design/radicaluniversalfield/blob/master/docs/output.md)

@@ -2,9 +2,9 @@
 Вы создаете свой файл php в любых из указанных ниже путей и указываете его в настройках поля.
 
 ### Пути шаблонов
-/templates/<ваша тема>/html/plg_fields_radicaluniversalfield
-/templates/<ваша тема>/html/layouts/plugin/fields/radicaluniversalfield
-/layouts/plugin/fields/radicaluniversalfield
+/templates/<ваша тема>/html/plg_fields_radicaluniversalfield<br/>
+/templates/<ваша тема>/html/layouts/plugin/fields/radicaluniversalfield<br/>
+/layouts/plugin/fields/radicaluniversalfield<br/>
 
 ### Имена файлов
 Используйте только буквы латинского алфавита и цифры.

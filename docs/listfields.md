@@ -25,23 +25,17 @@ modalassociation<br/>
 administrator/components/com_categories/models/fields<br/>
 categoryedit<br/>
 categoryparent<br/>
-<br/>
-<br/>
-
-administrator/components/com_categories/models/fields<br/>
 modal_category<br/>
 <br/>
 <br/>
 
+
 administrator/components/com_contact/models/fields<br/>
 modal_contact<br/>
-<br/>
-<br/>
-
-administrator/components/com_content/models/fields<br/>
 voteradio<br/>
 <br/>
 <br/>
+
 
 administrator/components/com_content/models/fields<br/>
 modal_article<br/>
@@ -76,11 +70,6 @@ menuordering<br/>
 menuparent<br/>
 menupreset<br/>
 menutype<br/>
-<br/>
-<br/>
-
-
-administrator/components/com_menus/models/fields<br/>
 modal_menu<br/>
 <br/>
 <br/>
@@ -96,13 +85,10 @@ modulesposition<br/>
 
 administrator/components/com_newsfeeds/models/fields<br/>
 newsfeeds<br/>
-<br/>
-<br/>
-
-administrator/components/com_newsfeeds/models/fields<br/>
 modal_newsfeed<br/>
 <br/>
 <br/>
+
 
 administrator/components/com_plugins/models/fields<br/>
 pluginelement<br/>

@@ -50,6 +50,10 @@ echo $fields['my_field_name']->value;
 
 
 ### Дополнительные атрибуты
+Здесь вы можете ввести все атрибуты, которые вам надо для поля. <br/>
+Например, для subform требуется указание атрибута layout и если вам надо создавать новые элементы в subform, то надо проставить атрибут multiple, который будет равен true. <br/>
+Подробнее можете прочитать здесь о subform: [https://docs.joomla.org/Subform_form_field_type](https://docs.joomla.org/Subform_form_field_type) <br/>
+Все атрибуты стандартных полей Joomla! вы можете прочитать тут: [https://docs.joomla.org/Standard_form_field_types](https://docs.joomla.org/Standard_form_field_types)
 
 
 ### Адаптирование не работающих полей к subform

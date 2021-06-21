@@ -39,6 +39,7 @@
                 <option value="">PLG_RADICALUNIVERSALFIELD_PARAMS_RTYPE_SELECT</option>
             </field>
 
+
             <field
                     type="editor"
                     name="rxml"
@@ -97,6 +98,18 @@
                     />
                 </form>
             </field>
+
+            <field
+                    type="radio"
+                    name="rsubformfix"
+                    label="PLG_RADICALUNIVERSALFIELD_PARAMS_RSUBFORMFIX"
+                    default="0"
+                    class="btn-group btn-group-yesno"
+                    showon="rtype!:cleanxml[AND]rtype:subform">
+                <option value="0">JNO</option>
+                <option value="1">JYES</option>
+            </field>
+
 
             <field
                     type="subform"

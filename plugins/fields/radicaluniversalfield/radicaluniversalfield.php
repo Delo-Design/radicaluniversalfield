@@ -3,6 +3,7 @@
 use Joomla\CMS\Application\CMSApplication;
 use Joomla\CMS\Factory;
 use Joomla\CMS\Form\FormHelper;
+use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Layout\FileLayout;
 use Joomla\Database\DatabaseDriver;
 use Joomla\Filesystem\Path;
@@ -83,6 +84,16 @@ class PlgFieldsRadicaluniversalfield extends FieldsPlugin
 		$xml        = ParamsHelper::buildArray($params);
 		$class_name = 'JFormField' . ucfirst(strtolower($params->get('rtype')));
 
+		$fix = (int)$params->get('rsubformfix', 0);
+
+		if($fix)
+		{
+			HTMLHelper::script('plg_fields_radicaluniversalfield/fixsubform.js', [
+				'version' => filemtime ( __FILE__ ),
+				'relative' => true,
+			]);
+		}
+
 		if (class_exists($class_name))
 		{
 			$node = $parent->appendChild(new DOMElement('field'));
@@ -147,6 +158,7 @@ class PlgFieldsRadicaluniversalfield extends FieldsPlugin
 			}
 
 		}
+
 
 	}
 

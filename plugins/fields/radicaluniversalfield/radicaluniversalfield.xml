@@ -19,6 +19,10 @@
 		<language tag="ru-RU">ru-RU/ru-RU.plg_fields_radicaluniversalfield.sys.ini</language>
 	</languages>
 
+	<media folder="media" destination="plg_fields_radicaluniversalfield">
+		<folder>js</folder>
+	</media>
+
 	<files>
 		<filename plugin="radicaluniversalfield">radicaluniversalfield.php</filename>
 		<folder>fields</folder>

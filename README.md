@@ -26,7 +26,7 @@ Radical universal field является завершающим этапом и�
 
 ### Где скачать?
 - В релизах в этом репозитории. [Просмотреть](https://github.com/Delo-Design/radicaluniversalfield/releases)
-- Или последний архив с hika.su. [Скачать](https://hika.su/builds/free/dev_pkg_radicaluniversalfield.zip)
+- Или последний архив с hika.su. [Скачать](https://hika.su/builds/free/pkg_radicaluniversalfield.zip)
 
 
 ###  Документация

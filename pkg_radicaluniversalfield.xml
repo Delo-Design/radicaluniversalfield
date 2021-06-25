@@ -10,7 +10,6 @@
     <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
     <version>1.0</version>
     <description>PKG_RADICALUNIVERSALFIELD_DESCRIPTION</description>
-    <scriptfile>script.php</scriptfile>
 
     <updateservers>
         <server type="extension" priority="1" name="Radicaluniversalfield package">https://hika.su/update/free/pkg_radicaluniversalfield.xml</server>

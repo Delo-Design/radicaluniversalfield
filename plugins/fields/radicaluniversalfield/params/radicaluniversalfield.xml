@@ -101,7 +101,7 @@
                     label="PLG_RADICALUNIVERSALFIELD_PARAMS_RVALUES"
                     layout="joomla.form.field.subform.repeatable-table"
                     multiple="true"
-                    showon="rtype!:cleanxml[AND]rtype:list[OR]rtype:radio"
+                    showon="rtype!:cleanxml[AND]rtype:list[OR]rtype:radio[OR]rtype:checkboxes"
             >
                 <form>
                     <field
@@ -212,7 +212,7 @@
                             label="PLG_RADICALUNIVERSALFIELD_PARAMS_RVALUES"
                             layout="joomla.form.field.subform.repeatable-table"
                             multiple="true"
-                            showon="rtype!:cleanxml[AND]rtype:list[OR]rtype:radio"
+                            showon="rtype!:cleanxml[AND]rtype:list[OR]rtype:radio[OR]rtype:checkboxes"
                     >
                         <form>
                             <field
